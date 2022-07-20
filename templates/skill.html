@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>Поиск по навыку</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Найдено кандидатов с навыком <em>{{ skill }}</em>: {{ counter }}</h2>
+    <h2>Найдено кандидатов с навыком <em>{{ skill }}</em>: {{ candidates | length }}</h2>
     {% for candidate in candidates %}
-        <p><a href="/candidate/{{ candidate[1] }}/">{{ candidate[0] }}</a></p>
+        <p><a href="/candidate/{{ candidate[1] }}/" target=_blank>{{ candidate[0] }}</a></p>
     {% endfor %}
 </body>
 </html>

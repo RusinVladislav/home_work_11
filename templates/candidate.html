@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Страница кандидата</title>
+    <title>{{ candidate.name }}</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Страница кандидата № {{ candidate['pk'] }}</h2>
-    <p>Имя кандидата: {{ candidate['name'] }}</p>
-    <p>Позиция кандидата: {{ candidate['position'] }}</p>
-    <p><img src='{{ candidate['picture'] }}' alt="Изображение отсутствует"></p>
-    <p>Навыки: {{ candidate['skills'] }}</p>
-    <p>Возраст: {{ candidate['age'] }}</p>
-    <p>Пол: {{ candidate['gender'] }}</p>
+    <h2>Страница кандидата № {{ candidate.pk }}</h2>
+    <p>Имя кандидата: {{ candidate.name }}</p>
+    <p>Позиция кандидата: {{ candidate.position }}</p>
+    <p><img src='{{ candidate.picture }}' alt="Изображение отсутствует"></p>
+    <p>Навыки: {{ candidate.skills }}</p>
+    <p>Возраст: {{ candidate.age }}</p>
+    <p>Пол: {{ candidate.gender }}</p>
 </body>
 </html>

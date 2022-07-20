@@ -1,10 +1,16 @@
-from flask import Flask, render_template
+import os
+from flask import Flask, send_from_directory, render_template
 from utils import load_candidates, get_candidate, get_candidates_by_skill, get_candidates_by_name
-
 
 app = Flask(__name__)
 
 all_candidates = load_candidates()
+
+
+@app.get('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 
 @app.get("/part1/")
@@ -38,8 +44,7 @@ def page_skills(skill):
     if type(candidates) == str:
         return candidates
     else:
-        counter = len(candidates)
-        return render_template('skill.html', skill=skill, candidates=candidates, counter=counter)
+        return render_template('skill.html', skill=skill, candidates=candidates)
 
 
 @app.get("/names/<name>/")
@@ -48,8 +53,7 @@ def page_names(name):
     if type(candidates) == str:
         return candidates
     else:
-        counter = len(candidates)
-        return render_template('name.html', name=name, candidates=candidates, counter=counter)
+        return render_template('name.html', name=name, candidates=candidates)
 
 
 app.run(debug=True)
